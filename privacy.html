@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Deep Translator – Privacy Policy</title>
+    <style>
+      body { max-width: 860px; margin: 32px auto; padding: 0 16px; font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; color: #222; }
+      h1, h2 { line-height: 1.25; }
+      h1 { font-size: 28px; margin: 0 0 16px; }
+      h2 { font-size: 18px; margin: 28px 0 8px; }
+      p, li { color: #333; }
+      code { background: #f6f8fa; padding: 2px 4px; border-radius: 3px; }
+      .muted { color: #666; font-size: 13px; }
+      .lang { margin-top: 40px; padding-top: 24px; border-top: 1px solid #eee; }
+      a { color: #0066cc; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <h1>Privacy Policy – Deep Translator (Chrome Extension)</h1>
+    <p class="muted">Last updated: <span id="pp-date">2025‑09‑13</span></p>
+
+    <p>
+      Deep Translator (the “Extension”) helps you translate selected text and optionally display
+      explanations using OpenAI’s APIs. We are committed to protecting your privacy. This policy
+      explains what data we process, how we use it, and your choices.
+    </p>
+
+    <h2>Information We Process</h2>
+    <ul>
+      <li>
+        <strong>Selected text you choose to translate.</strong> Only when you explicitly invoke the
+        Extension (e.g., context menu, shortcut, or button), the selected text is sent to
+        <code>api.openai.com</code> to obtain a translation and explanation.
+      </li>
+      <li>
+        <strong>OpenAI API key (optional, user‑provided).</strong> If you enter an API key, it is
+        stored locally via <code>chrome.storage.sync</code> and used solely to authenticate your
+        requests to OpenAI.
+      </li>
+      <li>
+        <strong>Translation history and usage count.</strong> Stored locally via
+        <code>chrome.storage.local</code> to let you revisit recent results and show a small usage
+        counter. Up to 100 recent items are kept; older items are pruned. You can clear history at
+        any time from the Extension UI.
+      </li>
+      <li>
+        <strong>Text‑to‑Speech (TTS) requests.</strong> When you press the “read aloud” button, the
+        text you choose is sent to OpenAI’s <code>/v1/audio/speech</code> endpoint to generate audio.
+      </li>
+    </ul>
+
+    <h2>What We Do Not Collect</h2>
+    <ul>
+      <li>No account creation within the Extension.</li>
+      <li>No third‑party analytics or tracking pixels.</li>
+      <li>No sale or sharing of personal information.</li>
+      <li>No remote code execution; the Extension’s code ships within the package.</li>
+    </ul>
+
+    <h2>How We Use Information</h2>
+    <ul>
+      <li>To provide translations, explanations, and optional audio via OpenAI’s APIs.</li>
+      <li>To remember your preferences (e.g., model choice, UI toggles) across devices using Chrome Sync.</li>
+      <li>To display recent translations locally for your convenience.</li>
+    </ul>
+
+    <h2>Data Sharing</h2>
+    <p>
+      We do not share your data with third parties other than sending selected text (and TTS input)
+      to OpenAI solely to fulfill your requests. Please review OpenAI’s privacy and security
+      documentation for how OpenAI processes data you submit.
+    </p>
+
+    <h2>Retention & Control</h2>
+    <ul>
+      <li>Your OpenAI API key and settings are stored in <code>chrome.storage.sync</code> until you remove them.</li>
+      <li>Your translation history is stored in <code>chrome.storage.local</code> (up to 100 items) and can be cleared anytime.</li>
+      <li>You can uninstall the Extension at any time to remove all associated local data.</li>
+    </ul>
+
+    <h2>Security</h2>
+    <p>
+      We use Chrome’s extension storage and messaging. Network requests are made over HTTPS to
+      <code>api.openai.com</code>. The Extension does not inject or execute remote scripts.
+    </p>
+
+    <h2>Children’s Privacy</h2>
+    <p>
+      The Extension is not directed to children under 13. If you believe we have processed a child’s
+      data inappropriately, please contact us so we can take action.
+    </p>
+
+    <h2>International Use</h2>
+    <p>
+      OpenAI may process data on servers outside your country. By using the Extension, you consent to
+      such processing to fulfill your translation requests.
+    </p>
+
+    <h2>Changes to This Policy</h2>
+    <p>
+      We may update this policy from time to time. We will revise the “Last updated” date above when
+      changes are made.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      For privacy questions or requests, please contact us at
+      <a href="mailto:support@example.com">support@example.com</a>.
+      Replace this email with your preferred support address before publishing.
+    </p>
+
+    <div class="lang">
+      <h1>プライバシーポリシー（日本語）</h1>
+      <p class="muted">最終更新日: <span id="pp-date-ja">2025年9月13日</span></p>
+      <p>
+        Deep Translator（以下「本拡張機能」）は、選択したテキストを OpenAI の API に送信し、翻訳と
+        解説を表示するためのツールです。本ポリシーでは、処理するデータ、利用目的、利用者の選択肢を説明します。
+      </p>
+      <h2>処理する情報</h2>
+      <ul>
+        <li><strong>利用者が翻訳を指示した選択テキスト</strong>（明示操作時のみ <code>api.openai.com</code> に送信）。</li>
+        <li><strong>OpenAI API キー</strong>（任意入力。<code>chrome.storage.sync</code> に保存し、認証にのみ使用）。</li>
+        <li><strong>翻訳履歴・利用回数</strong>（<code>chrome.storage.local</code> にローカル保存。最大100件。UIから削除可能）。</li>
+        <li><strong>TTS 入力テキスト</strong>（読み上げボタン押下時に <code>/v1/audio/speech</code> へ送信）。</li>
+      </ul>
+      <h2>収集しない情報</h2>
+      <ul>
+        <li>アカウント作成や第三者分析のための情報収集は行いません。</li>
+        <li>個人情報の販売・共有は行いません。</li>
+        <li>リモートコードの実行は行いません（コードは拡張機能内に同梱）。</li>
+      </ul>
+      <h2>利用目的</h2>
+      <ul>
+        <li>翻訳・解説・TTS の提供。</li>
+        <li>モデル選択などの設定保持（Chrome 同期ストレージ）。</li>
+        <li>最近の翻訳の参照（ローカル履歴）。</li>
+      </ul>
+      <h2>共有</h2>
+      <p>第三者への共有は行いません。利用者が指示した場合に限り、OpenAI へテキストを送信します。</p>
+      <h2>保持と管理</h2>
+      <ul>
+        <li>API キーと設定は利用者が削除するまで <code>chrome.storage.sync</code> に保存。</li>
+        <li>翻訳履歴は <code>chrome.storage.local</code> に保存（最大100件、任意に削除可能）。</li>
+        <li>拡張機能のアンインストールで関連ローカルデータは削除されます。</li>
+      </ul>
+      <h2>セキュリティ</h2>
+      <p>通信は HTTPS で <code>api.openai.com</code> のみ。外部スクリプトの実行は行いません。</p>
+      <h2>児童のプライバシー</h2>
+      <p>本拡張機能は 13 歳未満を対象としていません。懸念がある場合は下記までご連絡ください。</p>
+      <h2>問い合わせ先</h2>
+      <p>ご質問は <a href="mailto:support@example.com">support@example.com</a> まで。公開前に適切な連絡先へ置き換えてください。</p>
+    </div>
+
+    <script>
+      // Keep the dates in sync with build date if needed
+      (function(){
+        try {
+          var d = new Date();
+          var iso = d.toISOString().slice(0,10);
+          document.getElementById('pp-date').textContent = iso;
+          document.getElementById('pp-date-ja').textContent = d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日";
+        } catch(e){}
+      })();
+    </script>
+  </body>
+  </html>
+
