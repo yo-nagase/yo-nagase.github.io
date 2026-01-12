@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Klokka</title>
+    <link rel="icon" href="images/icon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007AFF;
+            --bg: #000000;
+            --surface: #1C1C1E;
+            --text-main: #FFFFFF;
+            --text-secondary: #86868B;
+            --font-main: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        /* Language Switching Logic */
+        html[lang="ja"] .en-only { display: none !important; }
+        html[lang="en"] .ja-only { display: none !important; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Nav & Language Switcher (Simplified) */
+        .nav-container {
+            position: sticky;
+            top: 24px;
+            margin-bottom: 60px;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-inner {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            padding: 8px 16px;
+            border-radius: 99px;
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            gap: 40px;
+            min-width: 300px;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: -0.02em;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            background: rgba(0,0,0,0.2);
+            padding: 2px;
+            border-radius: 99px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover { color: var(--text-main); }
+        .lang-btn.active {
+            background: rgba(255,255,255,0.1);
+            color: var(--text-main);
+        }
+
+        /* Content */
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            margin-bottom: 16px;
+            padding-left: 20px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <div class="nav-inner">
+            <a href="index.html" style="text-decoration: none; color: inherit;"><div class="nav-logo">Klokka</div></a>
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="lang-switch">
+                    <button class="lang-btn active" onclick="setLang('ja')">日本語</button>
+                    <button class="lang-btn" onclick="setLang('en')">EN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container ja-only">
+        <h1>プライバシーポリシー</h1>
+        <p>最終更新日: 2024年1月1日</p>
+
+        <p>Klokka（以下「本アプリ」）は、ユーザーのプライバシーを尊重し、個人情報の保護に最大限の配慮を払っています。本プライバシーポリシーでは、本アプリにおける情報の取り扱いについて説明します。</p>
+
+        <h2>1. 情報の収集について</h2>
+        <p>本アプリは、<strong>ユーザーのデバイス上でのみ動作する</strong>ように設計されており、開発者がユーザーの個人情報（名前、メールアドレス、作業ログなど）を収集、保存、送信することはありません。</p>
+        <p>本アプリに入力されたすべてのデータは、以下の場所にのみ保存されます：</p>
+        <ul>
+            <li>ユーザーのデバイス内部ストレージ</li>
+            <li>ユーザー個人のiCloudアカウント（iCloud同期が有効な場合）</li>
+        </ul>
+
+        <h2>2. iCloudの利用について</h2>
+        <p>本アプリはApple社のCloudKitを利用して、ユーザーのデバイス間でデータを同期する機能を提供しています。このデータは暗号化されてAppleのサーバーに保存され、Appleのプライバシーポリシーに従って管理されます。開発者はこのデータにアクセスすることはできません。</p>
+
+        <h2>3. 外部サービスへのデータ送信</h2>
+        <p>本アプリは、クラッシュ情報の収集やアプリの利用状況の分析のために、個人を特定しない形での統計データを収集する場合があります（例：AppleによるApp Analytics）。これらはアプリの品質向上のためにのみ使用されます。</p>
+
+        <h2>4. お問い合わせ</h2>
+        <p>本プライバシーポリシーに関するご質問は、以下のメールアドレスまでお問い合わせください。</p>
+        <p>support@klokka.app</p>
+    </div>
+
+    <div class="container en-only">
+        <h1>Privacy Policy</h1>
+        <p>Last Updated: January 1, 2024</p>
+
+        <p>Klokka ("the App") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we handle information in the App.</p>
+
+        <h2>1. Information Collection</h2>
+        <p>The App is designed to <strong>run locally on your device</strong>. The developer does not collect, store, or transmit your personal information (such as names, email addresses, or work logs).</p>
+        <p>All data entered into the App is stored only in:</p>
+        <ul>
+            <li>Your device's internal storage</li>
+            <li>Your personal iCloud account (if iCloud synchronization is enabled)</li>
+        </ul>
+
+        <h2>2. Use of iCloud</h2>
+        <p>The App uses Apple's CloudKit to synchronize data between your devices. This data is encrypted and stored on Apple's servers, governed by Apple's privacy policy. The developer does not have access to this data.</p>
+
+        <h2>3. Data Transmission to External Services</h2>
+        <p>The App may collect anonymous statistical data for crash reporting and usage analysis (e.g., Apple's App Analytics). This information is used solely to improve the App's quality and does not identify individuals.</p>
+
+        <h2>4. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+        <p>support@klokka.app</p>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Klokka.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switcher
+        function setLang(lang) {
+            document.documentElement.setAttribute('lang', lang);
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            if(lang === 'ja') document.querySelectorAll('.lang-btn')[0].classList.add('active');
+            else document.querySelectorAll('.lang-btn')[1].classList.add('active');
+        }
+    </script>
+</body>
+</html>
