@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Klokka</title>
+    <link rel="icon" href="images/icon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007AFF;
+            --primary-gradient: linear-gradient(135deg, #007AFF, #00C6FF);
+            --bg: #000000;
+            --surface: #1C1C1E;
+            --surface-glass: rgba(28, 28, 30, 0.7);
+            --text-main: #FFFFFF;
+            --text-secondary: #86868B;
+            --accent: #FF9500;
+            --font-main: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            --radius-lg: 32px;
+            --radius-md: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Language Switching Logic */
+        html[lang="ja"] .en-only { display: none !important; }
+        html[lang="en"] .ja-only { display: none !important; }
+
+        /* Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #A1A1A6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Nav & Language Switcher */
+        .nav-container {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            padding: 8px 16px;
+            border-radius: 99px;
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            gap: 40px;
+            /* Ensure nav doesn't collapse too small */
+            min-width: 300px;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: -0.02em;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            background: rgba(0,0,0,0.2);
+            padding: 2px;
+            border-radius: 99px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover { color: var(--text-main); }
+        .lang-btn.active {
+            background: rgba(255,255,255,0.1);
+            color: var(--text-main);
+        }
+
+        /* Simple Header for Subpages */
+        .page-header {
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 18px;
+        }
+
+        /* Reusing Use Cases styles for Feature Details */
+        .feature-detail-section {
+            padding: 80px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 120px;
+        }
+        
+        .feature-item.reverse { flex-direction: row-reverse; }
+
+        .feature-text { flex: 1; }
+        .feature-visual {
+            flex: 1;
+            background: var(--surface);
+            border-radius: 40px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+        
+        .feature-visual img {
+             max-width: 100%;
+             height: auto;
+             max-height: 350px;
+             border-radius: 12px;
+             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .feature-tag {
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            display: block;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .feature-text h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .feature-text p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+        .feature-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .footer-links a { color: var(--text-secondary); text-decoration: none; margin: 0 16px; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text-main); }
+        
+        .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .feature-item, .feature-item.reverse { flex-direction: column; text-align: center; }
+            .feature-list li { text-align: left; display: inline-block; }
+            .feature-visual { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <a href="index.html" style="text-decoration: none; color: inherit;"><div class="nav-logo">Klokka</div></a>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <a href="features.html" style="color: var(--text-main); text-decoration: none; font-size: 14px; font-weight: 500;">Features</a>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLang('ja')">日本語</button>
+                <button class="lang-btn" onclick="setLang('en')">EN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="page-header fade-up">
+        <div class="container">
+            <h1 class="ja-only">機能一覧</h1>
+            <p class="ja-only">時間を味方につける、Klokkaの全ての機能。</p>
+            
+            <h1 class="en-only">Features</h1>
+            <p class="en-only">Everything you need to master your time.</p>
+        </div>
+    </header>
+
+    <div class="container feature-detail-section">
+        
+        <!-- Feature 1: The Timer -->
+        <div class="feature-item fade-up">
+            <div class="feature-visual">
+                <img src="images/screenshot-timer.png" alt="Timer Screen">
+            </div>
+            <div class="feature-text">
+                <span class="feature-tag">Smart Carousel</span>
+                <h2 class="ja-only">指先ひとつで、<br>プロジェクト切り替え。</h2>
+                <h2 class="en-only">Switch Contexts<br>with a Swipe.</h2>
+                
+                <p class="ja-only">
+                    従来のリスト型タイマーは、スクロールして探すのが面倒でした。
+                    Klokkaは「スマートカルーセル」を採用。左右にスワイプするだけで、素早くプロジェクトを切り替えられます。
+                </p>
+                <p class="en-only">
+                    Forget scrolling through endless lists. 
+                    Klokka's Smart Carousel lets you swipe left or right to switch projects instantly. It's tactile, fast, and satisfying.
+                </p>
+
+                <ul class="feature-list ja-only">
+                    <li>直感的なスワイプ操作</li>
+                    <li>大きなタイマー表示で集中力を維持</li>
+                    <li>ワンタップで開始・停止</li>
+                </ul>
+                <ul class="feature-list en-only">
+                    <li>Intuitive swipe gestures</li>
+                    <li>Large, focus-friendly display</li>
+                    <li>One-tap start/stop</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Feature 2: Reports -->
+        <div class="feature-item reverse fade-up">
+            <div class="feature-visual">
+                <img src="images/screenshot-reports-daily.png" alt="Reports Screen">
+            </div>
+            <div class="feature-text">
+                <span class="feature-tag">Analytics & Export</span>
+                <h2 class="ja-only">見えなかった時間が、<br>見えるようになる。</h2>
+                <h2 class="en-only">Visualize Your<br>Hidden Habits.</h2>
+                
+                <p class="ja-only">
+                    日次、月次のレポートを自動生成。どのプロジェクトにどれだけ時間を使ったかが一目瞭然です。
+                    ExcelやNumbersで分析したい方のために、詳細なCSVエクスポートも完備しています。
+                </p>
+                <p class="en-only">
+                    Auto-generated daily and monthly reports show you exactly where your time went.
+                    Need to crunch the numbers? Export granular data to CSV for Excel or Numbers.
+                </p>
+                
+                <ul class="feature-list ja-only">
+                    <li>美しいグラフによる可視化</li>
+                    <li>人月（Man-Month）の自動計算</li>
+                    <li>PDF / CSV エクスポート</li>
+                </ul>
+                 <ul class="feature-list en-only">
+                    <li>Beautiful graphical breakdown</li>
+                    <li>Automatic Man-Month calculation</li>
+                    <li>PDF & CSV Export</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Feature 3: Widgets & Watch -->
+        <div class="feature-item fade-up">
+            <div class="feature-visual" style="font-size: 80px;">
+                ⌚️ 📱
+            </div>
+            <div class="feature-text">
+                <span class="feature-tag">Ecosystem</span>
+                <h2 class="ja-only">iPhoneを開く必要すら、<br>ありません。</h2>
+                <h2 class="en-only">You Don't Even Need<br>To Open The App.</h2>
+                
+                <p class="ja-only">
+                    iOSの最新機能をフル活用。ホーム画面のインタラクティブウィジェットならアプリを開かずにタイマーを操作可能。
+                    スタンバイモードにも対応し、置時計としても活躍します。
+                </p>
+                 <p class="en-only">
+                    Fully optimized for iOS. Start timers directly from the Interactive Home Screen Widget.
+                    Supports StandBy Mode, turning your iPhone into a beautiful desk clock while tracking time.
+                </p>
+
+                <ul class="feature-list ja-only">
+                    <li>インタラクティブ・ウィジェット</li>
+                    <li>ライブアクティビティ & Dynamic Island</li>
+                    <li>スタンバイモード対応</li>
+                </ul>
+                <ul class="feature-list en-only">
+                    <li>Interactive Widgets</li>
+                    <li>Live Activities & Dynamic Island</li>
+                    <li>StandBy Mode Support</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Feature 4: Organization -->
+        <div class="feature-item reverse fade-up">
+            <div class="feature-visual">
+                <img src="images/screenshot-projects.png" alt="Organization">
+            </div>
+            <div class="feature-text">
+                <span class="feature-tag">Organization</span>
+                <h2 class="ja-only">自分だけの色で、<br>整理しよう。</h2>
+                <h2 class="en-only">Organize it<br>Your Way.</h2>
+                
+                <p class="ja-only">
+                    仕事、勉強、趣味。プロジェクトごとにテーマカラーを設定できます。
+                    増えすぎたプロジェクトはアーカイブして非表示に。常にデスクを綺麗に保つように、アプリ内も整理整頓。
+                </p>
+                <p class="en-only">
+                    Work, study, hobbies. Assign custom theme colors to each project.
+                    Archive old projects to hide them from view. Keep your digital workspace as clean as your desk.
+                </p>
+
+                <ul class="feature-list ja-only">
+                    <li>カスタムカラー設定</li>
+                    <li>カテゴリタグ分類</li>
+                    <li>アーカイブ機能</li>
+                </ul>
+                <ul class="feature-list en-only">
+                    <li>Custom Color Coding</li>
+                    <li>Category Tagging</li>
+                    <li>Project Archiving</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Feature 5: Privacy (New) -->
+        <div class="feature-item fade-up">
+            <div class="feature-visual" style="font-size: 80px;">
+                🔒
+            </div>
+            <div class="feature-text">
+                <span class="feature-tag">Privacy First</span>
+                <h2 class="ja-only">あなたのデータは、<br>あなたのもの。</h2>
+                <h2 class="en-only">Your Data,<br>Stays Yours.</h2>
+                
+                <p class="ja-only">
+                    Klokkaはあなたのプライバシーを、何よりも大切にしています。
+                    データは全て端末内（およびあなたのiCloud）にのみ保存されます。私たちがあなたの行動データを追跡することは決してありません。
+                </p>
+                <p class="en-only">
+                    Klokka treats your privacy with the utmost respect.
+                    All data is stored locally on your device (and your private iCloud). We never track your activity or sell your data.
+                </p>
+
+                <ul class="feature-list ja-only">
+                    <li>完全なローカル保存</li>
+                    <li>セキュアなiCloud同期</li>
+                    <li>会員登録・ログイン不要</li>
+                </ul>
+                <ul class="feature-list en-only">
+                    <li>100% Local Storage</li>
+                    <li>Secure iCloud Sync</li>
+                    <li>No Sign-up Required</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Feature 6: Focus Mode (New) -->
+        <div class="feature-item reverse fade-up">
+            <div class="feature-visual" style="font-size: 80px;">
+                🧘
+            </div>
+            <div class="feature-text">
+                <span class="feature-tag">Focus Mode</span>
+                <h2 class="ja-only">「今」に集中する。</h2>
+                <h2 class="en-only">Stay in the Zone.</h2>
+                
+                <p class="ja-only">
+                    締め切り前の集中タイムには「フォーカスモード」を。
+                    ノイズを極限まで削ぎ落とし、タイマーの数字だけが浮かび上がるミニマルな画面で、深い没入をサポートします。
+                </p>
+                <p class="en-only">
+                    Need deep work? Engage "Focus Mode".
+                    A minimalist interface that strips away all distractions, leaving only the timer to keep you on track.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" class="ja-only">プライバシーポリシー</a>
+                <a href="#" class="en-only">Privacy Policy</a>
+                <a href="#" class="ja-only">サポート</a>
+                <a href="#" class="en-only">Support</a>
+            </div>
+            <p class="copyright">&copy; 2024 Klokka.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switcher
+        function setLang(lang) {
+            document.documentElement.setAttribute('lang', lang);
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            // Assuming order is Ja, En or finding by text/onclick
+            if(lang === 'ja') document.querySelectorAll('.lang-btn')[0].classList.add('active');
+            else document.querySelectorAll('.lang-btn')[1].classList.add('active');
+        }
+
+        // Intersection Observer
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
