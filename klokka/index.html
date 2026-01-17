@@ -224,12 +224,14 @@
             flex-direction: column;
             color: white;
             overflow: hidden; /* Ensure image stays inside border radius */
+            justify-content: flex-start;
         }
         
         .app-screen img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center center;
         }
 
         /* Watch Mockup (CSS) */
@@ -802,9 +804,7 @@
              <!-- Watch Mockup -->
              <div class="watch-mockup">
                 <div class="watch-screen">
-                    <div style="font-size: 10px; color: #FF9500;">RECORDING</div>
-                    <div class="mock-timer-sm">00:42</div>
-                    <div style="font-size: 12px; opacity: 0.7;">Redesign</div>
+                    <img src="images/apple-watch-main.png" alt="Klokka Apple Watch" style="width: 100%; height: 100%; object-fit: cover; border-radius: 32px;">
                 </div>
                 <!-- Strap visuals could go here -->
             </div>
