@@ -764,8 +764,8 @@
         <div style="display: flex; gap: 20px; align-items: center;">
             <a href="features.html" style="color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--text-main)'" onmouseout="this.style.color='var(--text-secondary)'">Features</a>
             <div class="lang-switch">
-                <button class="lang-btn active" onclick="setLang('ja')">日本語</button>
-                <button class="lang-btn" onclick="setLang('en')">EN</button>
+                <a href="?lang=ja" class="lang-btn">日本語</a>
+                <a href="?lang=en" class="lang-btn">EN</a>
             </div>
         </div>
     </div>
@@ -972,7 +972,7 @@
                         <div style="margin-bottom: 24px;">
                             <div class="card-icon">📂</div>
                             <h3 class="card-title ja-only">カテゴリ整理 & 色分け</h3>
-                            <p class="card-desc ja-only">「顧客A」「社内案件」など、プロジェクトを自由にカテゴリ分け。色を設定すれば、カレンダーやリストでも一目で判別できます。</p>
+                            <p class="card-desc ja-only">「顧客A」「社内案件」など、プロジェクトを自由にカテゴリ分け。色を設定すれば、グラフを表示した時に色分けされるので一目で判別できます。</p>
                             
                             <h3 class="card-title en-only">Organize & Color Code</h3>
                             <p class="card-desc en-only">Group projects by client or type. Assign custom colors to instantly spot them in your lists and reports.</p>
@@ -1250,14 +1250,24 @@
             }
         });
 
-        // Language Switcher
-        function setLang(lang) {
+        // Language Switcher - URL based
+        function initLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang') || 'ja'; // Default to Japanese
+            
             document.documentElement.setAttribute('lang', lang);
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            // Assuming order is Ja, En or finding by text/onclick
-            if(lang === 'ja') document.querySelectorAll('.lang-btn')[0].classList.add('active');
-            else document.querySelectorAll('.lang-btn')[1].classList.add('active');
+            
+            // Update active state on language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('href') === `?lang=${lang}`) {
+                    btn.classList.add('active');
+                }
+            });
         }
+        
+        // Initialize language on page load
+        initLanguage();
 
         // Intersection Observer
         const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
