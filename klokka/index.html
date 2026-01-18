@@ -692,6 +692,35 @@
             .use-case-item, .use-case-item.reverse { flex-direction: column; text-align: center; }
             .ecosystem-visual { flex-direction: column; align-items: center; }
             .watch-mockup { transform: rotate(0) translateY(-20px); margin-bottom: 0; }
+            .reports-section { padding: 60px 0; }
+            .reports-text h2 { font-size: 24px; }
+            .reports-text p { font-size: 16px; }
+
+            /* Prevent report visuals from overlapping text on mobile */
+            .reports-visuals {
+                height: auto !important;
+                min-height: 0 !important;
+                padding-top: 16px;
+                padding-bottom: 24px;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                gap: 16px;
+            }
+            .reports-visuals .report-pdf-card,
+            .reports-visuals .report-mockup-card {
+                position: relative !important;
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            .reports-visuals .report-pdf-card img {
+                width: min(260px, 82vw) !important;
+                height: auto !important;
+            }
+            .reports-visuals .report-mockup-card img {
+                max-width: min(320px, 90vw);
+            }
+            .report-mockup-card { margin-top: 0; }
         }
 
         /* Lightbox Modal */
