@@ -384,6 +384,14 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
         }
+
+        /* Smaller preview card variant (used for the Monthly Overview section) */
+        .report-preview.preview-sm {
+            padding: 24px;
+            max-width: 360px;
+            width: 100%;
+            margin: 0 auto;
+        }
         
         .report-preview img {
             width: 100%;
@@ -721,6 +729,10 @@
                 max-width: min(320px, 90vw);
             }
             .report-mockup-card { margin-top: 0; }
+
+            .report-preview.preview-sm {
+                max-width: 320px;
+            }
         }
 
         /* Lightbox Modal */
@@ -1046,6 +1058,46 @@
         </div>
     </section>
 
+    <!-- Monthly Overview Section (New) -->
+    <section class="reports-section">
+        <div class="container">
+            <div class="reports-content">
+                <!-- Left: Screenshot -->
+                <div class="fade-up" style="display: flex; justify-content: center;">
+                    <div class="report-preview preview-sm">
+                        <img src="images/screenshot-reports.png" alt="Monthly Reports Screen" class="clickable-image" onclick="openLightbox(this.src)">
+                        <div class="ja-only" style="margin-top: 12px; font-size: 14px; color: var(--text-secondary); text-align: center;">月次レポート画面（Monthly）</div>
+                        <div class="en-only" style="margin-top: 12px; font-size: 14px; color: var(--text-secondary); text-align: center;">Monthly reports view</div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="reports-text fade-up delay-1">
+                    <span class="section-tag">Monthly</span>
+                    <h2 class="ja-only">月ごとの全体像を、一目で。</h2>
+                    <h2 class="en-only">See the month at a glance.</h2>
+
+                    <p class="ja-only">
+                        合計時間・人月（Man-Months）・月次チャートをまとめて表示。
+                        月の振り返りや、工数の見積もり・請求の根拠づくりがスムーズになります。
+                    </p>
+                    <p class="en-only">
+                        Review total time, Man-Months, and monthly charts in one place.
+                        Perfect for retrospectives, estimations, and invoice-ready reporting.
+                    </p>
+
+                    <div class="stat-badge ja-only">🗓️ 月別サマリー</div>
+                    <div class="stat-badge ja-only">👥 人月（Man-Months）</div>
+                    <div class="stat-badge ja-only">📊 月次チャート</div>
+
+                    <div class="stat-badge en-only">🗓️ Monthly summary</div>
+                    <div class="stat-badge en-only">👥 Man-Months</div>
+                    <div class="stat-badge en-only">📊 Monthly chart</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Deep Analytics Section (New) -->
     <section class="reports-section">
         <div class="container">
@@ -1097,6 +1149,16 @@
                 <span class="section-tag">Uses</span>
                 <h2 class="section-title ja-only">あなたの時間を管理する</h2>
                 <h2 class="section-title en-only">Master Your Time</h2>
+                <p class="ja-only" style="margin-top: 16px; color: var(--text-secondary); font-size: 18px; line-height: 1.7;">
+                    たとえば「授業 / 自習 / バイト」や「案件A / 案件B / 会議」、
+                    あるいは「設計 / 実装 / レビュー」など。
+                    その日の行動を切り替えるたびにサッと記録して、あとから“何に時間を使ったか”を確かなデータで振り返れます。
+                </p>
+                <p class="en-only" style="margin-top: 16px; color: var(--text-secondary); font-size: 18px; line-height: 1.7;">
+                    For example: “Class / Self-study / Part-time job”, “Client A / Client B / Meetings”,
+                    or “Design / Implementation / Review”.
+                    Log each switch in seconds, then look back with reliable data on where your time actually went.
+                </p>
             </div>
 
             <div class="use-case-container">
