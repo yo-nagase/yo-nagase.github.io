@@ -19,7 +19,7 @@
   </head>
   <body>
     <h1>Privacy Policy – Deep Translator (Chrome Extension)</h1>
-    <p class="muted">Last updated: <span id="pp-date">2025‑09‑13</span></p>
+    <p class="muted">Last updated: <span id="pp-date">2026-01-24</span></p>
 
     <p>
       Deep Translator (the “Extension”) helps you translate selected text and optionally display
@@ -113,7 +113,7 @@
 
     <div class="lang">
       <h1>プライバシーポリシー（日本語）</h1>
-      <p class="muted">最終更新日: <span id="pp-date-ja">2025年9月13日</span></p>
+      <p class="muted">最終更新日: <span id="pp-date-ja">2026年1月24日</span></p>
       <p>
         Deep Translator（以下「本拡張機能」）は、選択したテキストを OpenAI の API に送信し、翻訳と
         解説を表示するためのツールです。本ポリシーでは、処理するデータ、利用目的、利用者の選択肢を説明します。
@@ -158,7 +158,11 @@
       (function(){
         try {
           var d = new Date();
-          var iso = d.toISOString().slice(0,10);
+          // Use local date (not UTC) so the displayed date matches the user's timezone.
+          var y = d.getFullYear();
+          var m = String(d.getMonth() + 1).padStart(2, '0');
+          var day = String(d.getDate()).padStart(2, '0');
+          var iso = y + "-" + m + "-" + day;
           document.getElementById('pp-date').textContent = iso;
           document.getElementById('pp-date-ja').textContent = d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日";
         } catch(e){}
