@@ -776,7 +776,10 @@
     </div>
 
     <div class="nav-container">
-        <a href="index.html" style="text-decoration: none; color: inherit;"><div class="nav-logo">Klokka</div></a>
+        <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+            <img src="images/animated-logo.svg" alt="Animated Logo" style="width: 24px; height: 24px;">
+            <div class="nav-logo">Klokka</div>
+        </a>
         <div style="display: flex; gap: 20px; align-items: center;">
             <a href="features.html" style="color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--text-main)'" onmouseout="this.style.color='var(--text-secondary)'">Features</a>
             <div class="lang-switch">
@@ -788,7 +791,10 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-badge fade-up">Now Available v1.0.0</div>
+        <div class="hero-anim-icon fade-up" style="margin-bottom: 24px;">
+            <img src="images/animated-logo.svg" alt="Animated Klokka Icon" style="width: 120px; height: 120px;">
+        </div>
+        <div class="hero-badge fade-up delay-1">Now Available v1.0.0</div>
         
         <!-- Japanese Headline -->
         <!-- Japanese Headline -->
@@ -837,7 +843,20 @@
                 <!-- Card 1: Carousel -->
                 <div class="feature-card span-2">
                     <div class="card-content">
-                        <div class="card-icon">🎨</div>
+                        <div class="card-icon" style="background: transparent;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <g stroke="#00C6FF">
+                                   <rect x="2" y="4" width="14" height="16" rx="2" fill="rgba(0,198,255,0.2)">
+                                       <animate attributeName="x" values="2; 8; 2" dur="3s" repeatCount="indefinite" />
+                                   </rect>
+                                </g>
+                                <g stroke="#007AFF">
+                                   <rect x="8" y="4" width="14" height="16" rx="2" fill="rgba(0,122,255,0.2)">
+                                       <animate attributeName="x" values="8; 2; 8" dur="3s" repeatCount="indefinite" />
+                                   </rect>
+                                </g>
+                            </svg>
+                        </div>
                         <h3 class="card-title ja-only">スマートカルーセル</h3>
                         <p class="card-desc ja-only">スワイプするだけでプロジェクトを切り替え。直感的な操作感で、タスクの切り替えもスムーズに行えます。</p>
                         
@@ -849,7 +868,22 @@
                 <!-- Card 2: Reports -->
                 <div class="feature-card">
                     <div class="card-content">
-                        <div class="card-icon">📊</div>
+                        <div class="card-icon" style="background: transparent;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="4" y="16" width="4" height="6" rx="1" fill="#007AFF">
+                                   <animate attributeName="y" values="16; 10; 16" dur="2s" repeatCount="indefinite" />
+                                   <animate attributeName="height" values="6; 12; 6" dur="2s" repeatCount="indefinite" />
+                                </rect>
+                                <rect x="10" y="12" width="4" height="10" rx="1" fill="#00C6FF">
+                                   <animate attributeName="y" values="12; 6; 12" dur="2s" repeatCount="indefinite" delay="0.5s"/>
+                                   <animate attributeName="height" values="10; 16; 10" dur="2s" repeatCount="indefinite" delay="0.5s"/>
+                                </rect>
+                                <rect x="16" y="6" width="4" height="16" rx="1" fill="#FF9500">
+                                   <animate attributeName="y" values="6; 12; 6" dur="2s" repeatCount="indefinite" delay="1s"/>
+                                   <animate attributeName="height" values="16; 10; 16" dur="2s" repeatCount="indefinite" delay="1s"/>
+                                </rect>
+                            </svg>
+                        </div>
                         <h3 class="card-title ja-only">詳細レポート</h3>
                         <p class="card-desc ja-only">日ごと、月ごとの作業時間をグラフで可視化。</p>
                         <ul class="ja-only" style="margin-top: 12px; color: var(--text-secondary); list-style: none; padding: 0;">
@@ -871,7 +905,17 @@
                 <!-- Card 3: Widgets (New) -->
                 <div class="feature-card">
                     <div class="card-content">
-                        <div class="card-icon">📱</div>
+                        <div class="card-icon" style="background: transparent;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" fill="rgba(255,255,255,0.05)" />
+                                <rect x="8" y="6" width="8" height="4" rx="1" fill="#00C6FF" stroke="none">
+                                     <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
+                                </rect>
+                                <rect x="8" y="12" width="8" height="4" rx="1" fill="#FF9500" stroke="none">
+                                     <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" delay="1s"/>
+                                </rect>
+                            </svg>
+                        </div>
                         <h3 class="card-title ja-only">ウィジェット</h3>
                         <p class="card-desc ja-only">iPhoneを取り出さずに、ホーム画面・ロック画面からいつでも記録。</p>
                          <ul class="ja-only" style="margin-top: 12px; color: var(--text-secondary); list-style: none; padding: 0;">
@@ -893,7 +937,17 @@
                   <div class="feature-card span-2">
                     <div class="card-content" style="display: flex; flex-direction: column; height: 100%;">
                         <div style="margin-bottom: 24px;">
-                            <div class="card-icon">📂</div>
+                            <div class="card-icon" style="background: transparent;">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                    <path d="M4 6C4 4.89543 4.89543 4 6 4H10.5L12 6H18C19.1046 6 20 6.89543 20 8V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V6Z" stroke="#007AFF" stroke-width="1.5" fill="rgba(0,122,255,0.1)"/>
+                                    <path d="M8 10H16" stroke="#00C6FF" stroke-width="2" stroke-linecap="round">
+                                        <animate attributeName="stroke-dasharray" values="0,20; 8,20; 0,20" dur="3s" repeatCount="indefinite"/>
+                                    </path>
+                                    <path d="M8 14H14" stroke="#FF9500" stroke-width="2" stroke-linecap="round">
+                                        <animate attributeName="stroke-dasharray" values="0,20; 6,20; 0,20" dur="3s" repeatCount="indefinite" delay="1s"/>
+                                    </path>
+                                </svg>
+                            </div>
                             <h3 class="card-title ja-only">カテゴリ整理 & 色分け</h3>
                             <p class="card-desc ja-only">「顧客A」「社内案件」など、プロジェクトを自由にカテゴリ分け。色を設定すれば、グラフを表示した時に色分けされるので一目で判別できます。</p>
                             
@@ -911,7 +965,14 @@
                  <div class="feature-card">
                     <div class="card-content" style="display: flex; flex-direction: column; height: 100%;">
                         <div style="margin-bottom: 24px;">
-                            <div class="card-icon">⚡️</div>
+                            <div class="card-icon" style="background: transparent;">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="#FF5E3A" stroke-width="1.5" stroke-linejoin="round" fill="rgba(255,94,58,0.2)">
+                                        <animate attributeName="fill" values="rgba(255,94,58,0.2); rgba(255,94,58,0.6); rgba(255,94,58,0.2)" dur="1.5s" repeatCount="indefinite"/>
+                                        <animate attributeName="stroke" values="#FF5E3A; #FF9500; #FF5E3A" dur="1.5s" repeatCount="indefinite"/>
+                                    </path>
+                                </svg>
+                            </div>
                             <h3 class="card-title ja-only">ライブアクティビティ</h3>
                             <p class="card-desc ja-only">iPhoneのロックを解除することなく、作業時間の経過をリアルタイムに確認できます。</p>
                             
@@ -928,7 +989,17 @@
                 <!-- Card 6: Data Management -->
                  <div class="feature-card span-2">
                     <div class="card-content">
-                        <div class="card-icon">📤</div>
+                        <div class="card-icon" style="background: transparent;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="#007AFF" fill="rgba(0,122,255,0.1)"/>
+                                <g>
+                                    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-5; 0,0" dur="2s" repeatCount="indefinite"/>
+                                    <animate attributeName="opacity" values="1; 0; 1" dur="2s" repeatCount="indefinite"/>
+                                    <polyline points="17 8 12 3 7 8" stroke="#00C6FF"/>
+                                    <line x1="12" y1="3" x2="12" y2="15" stroke="#00C6FF"/>
+                                </g>
+                            </svg>
+                        </div>
                         <h3 class="card-title ja-only">自由なデータ管理</h3>
                         <p class="card-desc ja-only">記録したデータはCSV形式でエクスポート・インポートが可能。バックアップや、スプレッドシートでの詳細な分析にも活用できます。</p>
                         <h3 class="card-title en-only">Import & Export</h3>
