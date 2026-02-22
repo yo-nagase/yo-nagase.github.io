@@ -218,6 +218,24 @@
             .feature-list li { text-align: left; display: inline-block; }
             .feature-visual { width: 100%; }
         }
+        
+        /* Fire Particle Effect */
+        .fire-particle {
+            position: fixed;
+            pointer-events: none;
+            background: radial-gradient(circle, #fff3e0 0%, #ff9800 40%, #f44336 80%, transparent 100%);
+            border-radius: 50%;
+            z-index: 9999;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            animation: fireExplosion ease-out forwards;
+            mix-blend-mode: screen;
+        }
+
+        @keyframes fireExplosion {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0); opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -442,12 +460,50 @@
     </footer>
 
     <script>
-        // Language Switcher - URL based
-        function initLanguage() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const lang = urlParams.get('lang') || 'ja'; // Default to Japanese
+        // Utility for Fire Particles
+        function createFireParticles(button) {
+            const rect = button.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'fire-particle';
+                document.body.appendChild(particle);
+                
+                // Random upward burst
+                const angle = (Math.random() * Math.PI) + Math.PI; // PI to 2PI (upwards)
+                const distance = 20 + Math.random() * 40;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+                
+                particle.style.left = centerX + 'px';
+                particle.style.top = centerY + 'px';
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+                
+                const size = 4 + Math.random() * 6;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.animationDuration = (0.4 + Math.random() * 0.4) + 's';
+                
+                setTimeout(() => particle.remove(), 1000);
+            }
+        }
+
+        // Language Switcher - Client-side with animation
+        function setLanguage(lang, event) {
+            if (event) {
+                event.preventDefault();
+                createFireParticles(event.currentTarget);
+            }
             
             document.documentElement.setAttribute('lang', lang);
+            
+            // Update URL without reloading
+            const url = new URL(window.location);
+            url.searchParams.set('lang', lang);
+            window.history.pushState({}, '', url);
             
             // Update active state on language buttons
             document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -455,6 +511,19 @@
                 if (btn.getAttribute('href') === `?lang=${lang}`) {
                     btn.classList.add('active');
                 }
+            });
+        }
+
+        function initLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang') || 'ja'; // Default to Japanese
+            
+            setLanguage(lang, null);
+            
+            // Attach click event listeners safely
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const targetLang = btn.getAttribute('href').replace('?lang=', '');
+                btn.addEventListener('click', (e) => setLanguage(targetLang, e));
             });
         }
         
